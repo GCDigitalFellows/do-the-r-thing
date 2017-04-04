@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+This workshop was created by [Tahir H. Butt](https://tahirbutt.com) as part of an ongoing series organized by the [Digital Fellows](https://digitalfellows.commons.gc.cuny.edu/) of the [Graduate Center Digital Initiatives](https://gcdi.commons.gc.cuny.edu/).
