@@ -4,7 +4,7 @@
 
 ## Instructions
 
-* Install [R](https://cloud.r-project.org/), [RTools](https://cran.r-project.org/bin/windows/Rtools/), and [RStudio](https://www.rstudio.com/products/rstudio/download/)
+* Install [R](https://cloud.r-project.org/), [RTools](https://cran.r-project.org/bin/windows/Rtools/)(Windows only), and [RStudio](https://www.rstudio.com/products/rstudio/download/)
 * Clone [this repository](https://github.com/GCDigitalFellows/do-the-r-thing)
 * Open `do-the-r-thing.Rproj` in RStudio
 * Drink your favorite beverage while [packrat](https://rstudio.github.io/packrat/) installs libraries
