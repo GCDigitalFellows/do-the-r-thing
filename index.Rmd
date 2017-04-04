@@ -1,5 +1,5 @@
 ---
-title: "Do the R Thing"
+title: "Data analysis with R"
 ---
 
 ![](images/header.png)
