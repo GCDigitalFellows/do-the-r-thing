@@ -9,33 +9,20 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Tahir H. Butt tahir.butt@gmail.com" />
 
 
-<title>Data analysis with R</title>
+<title>Do the R Thing: Data analysis with R</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
-}
-</script>
 
 
 
@@ -66,6 +53,7 @@ h6 {
 }
 </style>
 
+<link rel="stylesheet" href="workshop.css" type="text/css" />
 
 </head>
 
@@ -97,34 +85,34 @@ button.code-folding-btn:focus {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 51px;
+  padding-top: 64px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 69px;
+  margin-top: -69px;
 }
 
 .section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 69px;
+  margin-top: -69px;
 }
 .section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 69px;
+  margin-top: -69px;
 }
 .section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 69px;
+  margin-top: -69px;
 }
 .section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 69px;
+  margin-top: -69px;
 }
 .section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 69px;
+  margin-top: -69px;
 }
 </style>
 
@@ -162,44 +150,43 @@ $(document).ready(function () {
 
 
 
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Do the R Thing</a>
+        <!-- NOTE: add "navbar-inverse" class for an alternate navbar background -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      <a class="navbar-brand" href="#">
+        <img alt="GC Digital Initiatives" src="images/gcdi-logo.svg" style="height: 100%; padding: 5px; width: auto;">
+      </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="about.html">About</a>
-</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li><a href="https://github.com/GCDigitalFellows/do-the-r-thing"><i class="fa fa-2x fa-github" aria-hidden="true"></i></a></li>
       </ul>
     </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+  </div>
+</nav>
 
 <div class="fluid-row" id="header">
 
 
 
-<h1 class="title toc-ignore">Data analysis with R</h1>
+<h1 class="title toc-ignore">“Do the R Thing”: Data analysis with R</h1>
+<h4 class="author"><em>Tahir H. Butt <a href="mailto:tahir.butt@gmail.com">tahir.butt@gmail.com</a></em></h4>
 
 </div>
 
 
 <div class="figure">
-<img src="images/header.png" />
+<img src="images/header.png" id="header" class="header" />
 
 </div>
 
