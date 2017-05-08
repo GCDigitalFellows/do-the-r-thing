@@ -1,0 +1,71 @@
+---
+title: "\"Do the R Thing\""
+subtitle: "Data analysis with R"
+author: Tahir H. Butt <tahir.butt@gmail.com>
+date: May 10, 2017
+output:   
+  ioslides_presentation:
+    logo: images/gcdi-logo.svg
+    css: slides.css
+    self_contained: false
+    incremental: true
+    fig_caption: true
+---
+
+# Motivation
+
+## Do the Right Thing | Love, don't hate, your data analysis
+
+<div class="columns-2">
+![](images/lovehate.jpg)
+
+![](images/header.png)
+</div>
+
+<div class="notes">
+Is there a *right* way of doing data analysis in R? Why does it even matter?
+</div>
+
+## By way of introduction
+
+> - My name is Tahir and I am
+> - a doctoral candidate in Urban Education,
+> - learned my first programming language (Pascal) in the summer of 1996,
+> - studied computational linguistics in college,
+> - began programming Python in 2005 at my first real job,
+> - began using R in 2009,
+> - moved to Python (and Pandas) for data analysis because I hated R,
+> - but experimented with R again after many years this past December,
+> - and now I have seen the error of my ways.
+
+## Brought to you by the letter 'R'
+
+<div class="columns-2">
+![](images/rlogo.png)
+![](images/rstudiologo.png)
+
+[What is R?](https://www.r-project.org/about.html)
+:   R is a language and environment for statistical computing and graphics
+
+[Where did it come from?](https://en.wikipedia.org/wiki/R_(programming_language)#History)
+:   R was created by two New Zealand academics named Ross and Robert
+:   First release in 1995 and the current version is 3.4.0
+
+[And what is RStudio?](https://www.rstudio.com/products/rstudio/)
+: RStudio is an integrated development environment (IDE) for R
+
+</div>
+
+## How I have used R
+
+1. EOP
+2. Visualizing NEH
+3. Scraping
+
+## Why you use R | Or should, if you are not already
+
+1. Because it is open source and free, unlike Stata, SAS, SPSS, ...
+2. Very good online help through forums like StackOverflow
+3. Pretty graphics with `ggplot2`
+
+

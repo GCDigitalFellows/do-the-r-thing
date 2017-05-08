@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
-RVersion: 3.3.3
+RVersion: 3.4.0
 Repos: CRAN=https://cran.rstudio.com/,
     CRANextra=http://www.stats.ox.ac.uk/pub/RWin
 
@@ -248,6 +248,12 @@ Source: CRAN
 Version: 1.4.2
 Hash: 790c06c11c84041b814139d731a872b9
 Requires: Rcpp, plyr, stringr
+
+Package: revealjs
+Source: CRAN
+Version: 0.9
+Hash: d33e5b244ff56eaec0dec87babea8730
+Requires: rmarkdown
 
 Package: rmarkdown
 Source: CRAN

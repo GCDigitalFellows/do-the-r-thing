@@ -1,7 +1,0 @@
-name: "do-the-r-thing"
-output_dir: "docs"
-output:
-  html_document:
-    theme: paper
-    highlight: tango
-    css: workshop.css
