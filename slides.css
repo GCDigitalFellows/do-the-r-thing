@@ -100,6 +100,23 @@ body slides > slide {
   font-family: Source Sans Pro;
 }
 
+slides > slide.backdrop {
+  background-image: url(images/texturebg.png);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+}
+
+slides > slide:not(.nobackground):after {
+  color: #ffffff;
+}
+
+slides > slide:not(.nobackground):before {
+  background-size: 50px 50px;
+  padding-left: 50px;
+  height: 50px;
+  bottom: 5px;
+}
+
 slides > slide > hgroup + article p {
   font-family: Source Sans Pro;
   font-weight: 300;
@@ -109,4 +126,27 @@ slides > slide > hgroup + article p {
 .title-slide hgroup p {
   font-family: Source Sans Pro;
   font-weight: 300;
+}
+
+a { 
+  text-decoration: none; 
+  color: #1f78b4;
+  border-bottom: 2px dotted #1f78b4;
+}
+
+strong {
+  color: #e31a1c;
+}
+
+pre:not(.prettyprint) {
+  font-size: 16px;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+pre code {
+  word-wrap: normal;
+  white-space: pre;
 }

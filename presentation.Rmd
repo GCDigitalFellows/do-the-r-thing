@@ -12,6 +12,11 @@ output:
     fig_caption: true
 ---
 
+
+```{r global_options, echo = FALSE, include = FALSE}
+options(width = 999)
+```
+
 # Motivation
 
 ## Do the Right Thing | Love, don't hate, your data analysis
@@ -38,34 +43,137 @@ Is there a *right* way of doing data analysis in R? Why does it even matter?
 > - but experimented with R again after many years this past December,
 > - and now I have seen the error of my ways.
 
-## Brought to you by the letter 'R'
+## Data analysis, brought to you by the letter R
 
-<div class="columns-2">
 ![](images/rlogo.png)
-![](images/rstudiologo.png)
 
-[What is R?](https://www.r-project.org/about.html)
-:   R is a language and environment for statistical computing and graphics
-
-[Where did it come from?](https://en.wikipedia.org/wiki/R_(programming_language)#History)
-:   R was created by two New Zealand academics named Ross and Robert
-:   First release in 1995 and the current version is 3.4.0
-
-[And what is RStudio?](https://www.rstudio.com/products/rstudio/)
-: RStudio is an integrated development environment (IDE) for R
-
+<div class="notes">
+1. Q: How many have done data analysis?
+2. Q: How many have already some experience with R?
+3. I am assuming you at have done data analysis before, not necessarily with R, nor necessarily with prior programming experience.
 </div>
+
+## By way of introduction (cont.)
+
+### Analysis of data?
+
+"Procedures for **analyzing** data, techniques for **interpreting** the results of such procedures, ways of planning the **gathering** of data to make its analysis easier, more precise or more accurate, and all the machinery and results of (mathematical) **statistics** which apply to analyzing data." (John W. Tukey, 1961) 
+
+### What is R?
+
+R is a **language and environment** for statistical computing and graphics
+
+## New Zealand is for loveRs
+
+### Where did it come from?
+
+R was created by two **New Zealand** academics named Ross and Robert and released in 1995
+
+### Is R only for Kiwis?
+
+Though it seems to help (e.g., **Hadley Wickham**, more on him later), the benefits of R are universal, transcultural, and, possibly, transhistorical.
+
+## A schematic view for us analysts of data {.flexbox .vcenter}
+
+![r4ds.had.co.nz](http://r4ds.had.co.nz/diagrams/data-science-explore.png)
+ 
+This workshop covers **all but the Model stage** but we will definitely **explore data**.
+
+## Why you use R | Or should, if you are not already
+
+* Because it is **open source and free**, unlike Stata, SAS, SPSS, etc.
+* Very good **documentation** and lots of help through [Stack Overflow](https://stackoverflow.com/questions/tagged/r)
+* Pretty graphics with the `ggplot2` package
+* `install.packages()` many other packages from the Comprehensive R Archive Network ([CRAN](https://cran.r-project.org/))
+
+## But most importantly 
+
+* Fascism lost so you don't have to settle for Excel
+
+<div class="centered">
+![Battle of Berlin, May 1945](http://en.protothema.gr/wp-content/uploads/2015/05/new5548-1140x731.jpg)
+</div>
+
+## How not to teach R
+
+Garrett Grolemund of RStudio has [enumerated](https://rviews.rstudio.com/2017/02/22/how-to-teach-r-common-mistakes/) principles we will follow:
+
+1. Do not teach R as if it were a programming language: empower students to use R for data science
+2. Do not avoid the lecture: convey large amounts of information in a short period of time
+3. Do not let your workshop become a consulting clinic for installation bugs:  provide a classroom RStudio Server for students to use
+
+<div class="notes">
+* Come to Digital Fellows office hours for help installing R and RStudio
+</div>
+
+# Getting started
+
+## RStudio
+
+* Turn on your computers
+* Open your web browser to web address provided
+* Login with user and password provided
+
+## Create an R project
+
+![](images/rstudio-newproject.png)
+
+* New Project > New Directory > Empty Project
+* Enter "[LAST]-[FIRST]" in Directory Name
+* Create Project
+
+
+## The R Console
+
+```{r echo=TRUE,results='hide'}
+sessionInfo()
+```
+
+```
+R version 3.4.0 (2017-04-21)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Debian GNU/Linux 8 (jessie)
+
+Matrix products: default
+BLAS/LAPACK: /usr/lib/libopenblasp-r0.2.12.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+ [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C
+....
+```
+
+## Keeping an R Notebook
+
+An R **Notebook** is an R **Markdown** document with chunks that can be executed **independently** and **interactively**, with output visible immediately beneath the input ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html))
+
+### Creating a Notebook
+
+File > New File > R Notebook
+
+```
+---
+title: "My Notebook"
+output: html_notebook
+---
+```
+
+## Reproducible research
+
+R Notebooks are a method of **literate programming** that allows for direct interaction with R while producing **a reproducible document** with publication-quality output ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html))
+
+This presentation is actually written in R Markdown, so the output of a block of code can be included in the resulting document:
+
+```{r fig.width=4,fig.height=1.5}
+library(ggplot2)
+data(iris)
+ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width)) + geom_point()
+```
 
 ## How I have used R
 
 1. EOP
 2. Visualizing NEH
 3. Scraping
-
-## Why you use R | Or should, if you are not already
-
-1. Because it is open source and free, unlike Stata, SAS, SPSS, ...
-2. Very good online help through forums like StackOverflow
-3. Pretty graphics with `ggplot2`
-
 
