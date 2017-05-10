@@ -114,7 +114,7 @@ Garrett Grolemund of RStudio has [enumerated](https://rviews.rstudio.com/2017/02
 ## RStudio
 
 * Turn on your computers
-* Connect to gcdf WiFi network with password provided
+* Connect to WiFi
 * Open your web browser to web address provided
 * Login with user and password provided
 * Create New Session
