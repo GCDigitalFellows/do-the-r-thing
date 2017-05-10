@@ -1,5 +1,5 @@
 ---
-title: "\"Do the R Thing\""
+title: "Do the R Thing"
 subtitle: "Data analysis with R"
 author: Tahir H. Butt <tahir.butt@gmail.com>
 date: May 10, 2017
@@ -12,6 +12,9 @@ output:
     fig_caption: true
 ---
 
+<!--
+http://colorbrewer2.org/#type=qualitative&scheme=Paired&n=6
+-->
 
 ```{r global_options, echo = FALSE, include = FALSE}
 options(width = 999)
@@ -28,7 +31,7 @@ options(width = 999)
 </div>
 
 <div class="notes">
-Is there a *right* way of doing data analysis in R? Why does it even matter?
+> - Is there a *right* way of doing data analysis in R? Why does it even matter?
 </div>
 
 ## By way of introduction
@@ -48,9 +51,9 @@ Is there a *right* way of doing data analysis in R? Why does it even matter?
 ![](images/rlogo.png)
 
 <div class="notes">
-1. Q: How many have done data analysis?
-2. Q: How many have already some experience with R?
-3. I am assuming you at have done data analysis before, not necessarily with R, nor necessarily with prior programming experience.
+> - Q: How many have done data analysis?
+> - Q: How many have already some experience with R?
+> - I am assuming you at have done data analysis before, not necessarily with R, nor necessarily with prior programming experience.
 </div>
 
 ## By way of introduction (cont.)
@@ -111,17 +114,10 @@ Garrett Grolemund of RStudio has [enumerated](https://rviews.rstudio.com/2017/02
 ## RStudio
 
 * Turn on your computers
+* Connect to gcdf WiFi network with password provided
 * Open your web browser to web address provided
 * Login with user and password provided
-
-## Create an R project
-
-![](images/rstudio-newproject.png)
-
-* New Project > New Directory > Empty Project
-* Enter "[LAST]-[FIRST]" in Directory Name
-* Create Project
-
+* Create New Session
 
 ## The R Console
 
@@ -144,11 +140,17 @@ locale:
 ....
 ```
 
-## Keeping an R Notebook
+## Create an R project
+
+![](images/rstudio-newproject.png)
+
+* New Project > New Directory > Empty Project
+* Enter "[LAST]-[FIRST]" in Directory Name
+* Create Project
+
+## Start a new R Notebook
 
 An R **Notebook** is an R **Markdown** document with chunks that can be executed **independently** and **interactively**, with output visible immediately beneath the input ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html))
-
-### Creating a Notebook
 
 File > New File > R Notebook
 
@@ -171,9 +173,214 @@ data(iris)
 ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width)) + geom_point()
 ```
 
-## How I have used R
+# Basics for data analysis
 
-1. EOP
-2. Visualizing NEH
-3. Scraping
+## Welcome to the tidyverse
 
+```{r echo=TRUE,message=FALSE,results='hide',warning=FALSE}
+library(tidyverse)
+```
+
+![](images/tidyverse-packages.png)
+
+<div class="notes">
+> - These projects together share a common philosophy that marks an important shift away from the old, and arguably more frustrating, way of doing data analysis in R
+</div>
+
+## The tidy data way
+
+![](images/tidyrules.png)
+
+<div class="notes">
+r4ds suggests three interrelated rules which make a dataset tidy:
+
+> - Each variable must have its own column.
+> - Each observation must have its own row.
+> - Each value must have its own cell.
+</div>
+
+## Importing data
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+readr::read_csv('https://data.ny.gov/api/views/28gk-bu58/rows.csv?accessType=DOWNLOAD')
+```
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+download.file('http://www.equality-of-opportunity.org/data/college/mrc_table1.xlsx', 
+              destfile = 'mrc_table1.xlsx',
+              method='curl')
+readxl::read_excel('mrc_table1.xlsx')
+```
+
+<div class="notes">
+> - We use the `readr::read_csv()` for CSV files and `readxl::read_excel()` for Excel files
+> - Notice `read_csv` can take a url whereas we need to download the excel file first
+</div>
+
+## First, some data
+
+```{r}
+library(nycflights13)
+flights[1:5,]
+```
+
+<div class="notes">
+> - We are going to load flight data and inspect the first five rows
+</div>
+
+## Pipe it like it's hot
+
+
+<div class="columns-2">
+![](images/pipeitlikeitshot.png)
+
+> - a pipe is expressed by `%>%` from the `magittr` package
+> - clearly expresses a sequence of operations
+> - even more powerful when used as part of `tidyverse`
+
+</div>
+
+## Selecting and transforming data
+
+```{r}
+flights %>%
+  mutate(date = sprintf('%d-%.2d-%.2d', year, month, day)) %>%
+  select(date, air_time, distance) %>%
+  separate(date, "-", into=c("year", "month", "day"), remove=FALSE) %>%
+  head(5)
+```
+
+<div class="notes">
+> - `mutate()` creates new variables
+> - `select()` selects variables
+> - `separate()` turns a single chr variable into multiple (opposite `unite` can replace `mutate`)
+> - We never change the state of the program, `flights` is not mutated even though we call `mutate`
+> - `remove=FALSE` there so we can see what we created in the previous step
+> - `mutate` and `select` from `dplyr` whereas `separate` from `tidyr`
+</div>
+
+
+## Filtering and ordering data
+
+```{r}
+flights %>%
+  filter(day < 8) %>%
+  arrange(-air_time,distance) %>%
+  select(carrier, flight, air_time, distance) %>%
+  head(5)
+```
+
+<div class="notes">
+> - `filter()` reduces the number of observations using a matching condition
+> - `arrange()` order data by the value of particular variables
+> - `day` variable is of time `<int>` so we can be sure this matching condition
+> - The use of the negative sign (`-`) in the `arrange` function before a variable specifies that we want to order the data in descending order for that variable. Here we have combined both ascending and descending ordering.
+</div>
+
+## Tidying your data
+
+- The "tidy" principle is one observation per row and one variable per column
+- But data is often not organized the way your analysis requires
+
+## Tidying example: what you get
+
+```{r}
+table4a
+```
+
+## Tidying example: what you wanted
+
+```{r}
+table4a %>% gather(`1999`, `2000`, key = "year", value = "cases")
+```
+
+If you had many columns to gather, the following is equivalent:
+
+```{r echo=TRUE,results='hide'}
+table4a %>% gather(-country, key = "year", value = "cases")
+```
+
+<div class="notes">
+> - `-country` selects all columns but `country`
+> - `spread` is the opposite of `gather` so can be used when the data you have is currently in a "long" rather than a "wide" format
+</div>
+
+## Let's get statistical
+
+```{r echo=TRUE}
+flights %>% summarise(max(air_time, na.rm=TRUE))
+```
+
+```{r echo=TRUE}
+flights %>% 
+  summarise(avg_time = mean(air_time, na.rm=TRUE),
+            avg_speed = mean(distance/air_time, na.rm=TRUE))
+```
+
+<div class="notes">
+> - remember you always have to deal with how to handle `NA` values
+> - easy to add multiple summarized variable based on multiple variable
+> - also can get summary statistics with `flights %>% summary`
+</div>
+
+## Get it together: weather
+
+```{r}
+weather %>%
+  filter(origin == 'EWR') %>%
+  head(5)
+```
+
+## Get it together: weather and flights
+
+```{r}
+flightsweather <- flights %>%
+  left_join(weather, by = c("origin", "year", "month", "day", "hour")) %>%
+  select(origin, dep_delay, wind_speed)
+flightsweather %>%
+  head(5)
+```
+
+<div class="notes">
+> - We will save the joined dataset for future work
+</div>
+
+## Explore by visualizing
+
+```{r warning=FALSE,message=FALSE,fig.height=3}
+flightsweather %>%
+  ggplot(aes(x=wind_speed, y=dep_delay)) +
+    geom_point()
+```
+
+<div class="notes">
+> - Introduce `ggplot2`
+> - We can see roughly that with higher values of `visib` there were longer departure delays
+</div>
+
+## More than just pretty graphics
+
+```{r warning=FALSE,message=FALSE,fig.height=3}
+flightsweather %>%
+  filter(wind_speed < 250) %>%
+  ggplot(aes(x=wind_speed, y=dep_delay)) +
+    geom_point(aes(color = origin)) +
+    geom_smooth()
+```
+
+<div class="notes">
+> - Remove outliers
+> - Color points by origin
+> - Not an obvious relationship visible between these two variables
+</div>
+
+## Exploring groups of data as facets
+
+```{r warning=FALSE,message=FALSE,fig.height=3}
+flightsweather %>%
+  filter(wind_speed < 250) %>%
+  ggplot(aes(x=wind_speed, y=dep_delay)) +
+    geom_point(aes(color = origin)) +
+    geom_smooth() +
+    facet_wrap(~ origin)
+```
