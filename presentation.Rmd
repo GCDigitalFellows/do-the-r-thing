@@ -66,7 +66,7 @@ options(width = 999)
 
 R is a **language and environment** for statistical computing and graphics
 
-## New Zealand is for loveRs
+## New Zealand is for love**R**s
 
 ### Where did it come from?
 
@@ -109,70 +109,6 @@ Garrett Grolemund of RStudio has [enumerated](https://rviews.rstudio.com/2017/02
 * Come to Digital Fellows office hours for help installing R and RStudio
 </div>
 
-# Getting started
-
-## RStudio
-
-* Turn on your computers
-* Connect to gcdf WiFi network with password provided
-* Open your web browser to web address provided
-* Login with user and password provided
-* Create New Session
-
-## The R Console
-
-```{r echo=TRUE,results='hide'}
-sessionInfo()
-```
-
-```
-R version 3.4.0 (2017-04-21)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Debian GNU/Linux 8 (jessie)
-
-Matrix products: default
-BLAS/LAPACK: /usr/lib/libopenblasp-r0.2.12.so
-
-locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
- [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C
-....
-```
-
-## Create an R project
-
-![](images/rstudio-newproject.png)
-
-* New Project > New Directory > Empty Project
-* Enter "[LAST]-[FIRST]" in Directory Name
-* Create Project
-
-## Start a new R Notebook
-
-An R **Notebook** is an R **Markdown** document with chunks that can be executed **independently** and **interactively**, with output visible immediately beneath the input ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html))
-
-File > New File > R Notebook
-
-```
----
-title: "My Notebook"
-output: html_notebook
----
-```
-
-## Reproducible research
-
-R Notebooks are a method of **literate programming** that allows for direct interaction with R while producing **a reproducible document** with publication-quality output ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html))
-
-This presentation is actually written in R Markdown, so the output of a block of code can be included in the resulting document:
-
-```{r fig.width=4,fig.height=1.5}
-library(ggplot2)
-data(iris)
-ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width)) + geom_point()
-```
-
 # Basics for data analysis
 
 ## Welcome to the tidyverse
@@ -201,6 +137,8 @@ r4ds suggests three interrelated rules which make a dataset tidy:
 
 ## Importing data
 
+Use `readr` and `readxl` packages
+
 ```{r message=FALSE, warning=FALSE, results='hide'}
 readr::read_csv('https://data.ny.gov/api/views/28gk-bu58/rows.csv?accessType=DOWNLOAD')
 ```
@@ -217,7 +155,7 @@ readxl::read_excel('mrc_table1.xlsx')
 > - Notice `read_csv` can take a url whereas we need to download the excel file first
 </div>
 
-## First, some data
+## Load up sample data
 
 ```{r}
 library(nycflights13)
@@ -384,3 +322,85 @@ flightsweather %>%
     geom_smooth() +
     facet_wrap(~ origin)
 ```
+
+# Let's hit the gym
+
+## First, stretch
+
+Take a five minute break.
+
+<div class="notes">
+> - Write up IP address, login, password
+> - Make sure assistants are ready to help students
+</div>
+
+## Proper gym equipment | RStudio
+
+> - Turn on your computers
+> - Connect to gcdf WiFi network with password provided
+> - Open your web browser to web address provided
+> - Login with user and password provided
+> - Create New Session
+
+<div class="notes">
+> - Project myself logging in
+</div>
+
+## Using the free weights | The R Console
+
+```{r echo=TRUE,results='hide'}
+sessionInfo()
+```
+
+```
+R version 3.4.0 (2017-04-21)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Debian GNU/Linux 8 (jessie)
+
+Matrix products: default
+BLAS/LAPACK: /usr/lib/libopenblasp-r0.2.12.so
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+ [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C
+....
+```
+
+## Gym etiquette | Create an R project
+
+![](images/rstudio-newproject.png)
+
+> - New Project > New Directory > Empty Project
+> - Enter "[LAST]-[FIRST]" in Directory Name
+> - Create Project
+
+## Lifting log | Start a new R Notebook
+
+An R **Notebook** is an R **Markdown** document with chunks that can be executed **independently** and **interactively**, with output visible immediately beneath the input ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html))
+
+> - File > New File > R Notebook
+
+```
+---
+title: "My Notebook"
+output: html_notebook
+---
+```
+
+## What’s your max, bro? | Keeping research reproducible
+
+R Notebooks are a method of **literate programming** that allows for direct interaction with R while producing **a reproducible document** with publication-quality output ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html)). This presentation is actually written in R Markdown, so the output of a block of code can be included in the resulting document.
+
+```{r fig.width=4,fig.height=1.5}
+library(ggplot2)
+data(iris)
+ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width)) + geom_point()
+```
+
+## Let me spot you | Go to your empty R Notebook
+
+<div class="notes">
+- We will be importing data recently collected as part of a large research project. This data measured student earnings as an outcome of college education.
+- 
+</div>
