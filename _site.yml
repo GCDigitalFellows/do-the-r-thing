@@ -1,6 +1,5 @@
 name: do-the-r-thing
 output_dir: docs
-exclude: ["images"]
 navbar:
   title: Do the 'R' Thing
   left:
