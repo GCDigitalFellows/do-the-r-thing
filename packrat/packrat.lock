@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
-RVersion: 3.4.0
+RVersion: 3.4.3
 Repos: CRAN=https://cran.rstudio.com/,
     CRANextra=http://www.stats.ox.ac.uk/pub/RWin
 
@@ -203,6 +203,12 @@ Version: 0.4.3
 Hash: f96d896947fcaf9b6d0074002e9f4f9d
 Requires: colorspace
 
+Package: nycflights13
+Source: CRAN
+Version: 0.2.2
+Hash: dc3dbaaf3493c7ea43ff8a1523046c80
+Requires: tibble
+
 Package: openssl
 Source: CRAN
 Version: 0.9.6
@@ -257,10 +263,10 @@ Requires: rmarkdown
 
 Package: rmarkdown
 Source: CRAN
-Version: 1.4
-Hash: 030a6baa0a39c528665ed80d14992c11
-Requires: base64enc, caTools, evaluate, htmltools, jsonlite, knitr,
-    rprojroot, yaml
+Version: 1.8
+Hash: 2a7842e3cee62a79dd737d17e9e9d86b
+Requires: base64enc, evaluate, htmltools, jsonlite, knitr, mime,
+    rprojroot, stringr, yaml
 
 Package: rprojroot
 Source: CRAN

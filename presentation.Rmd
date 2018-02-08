@@ -2,7 +2,7 @@
 title: "Do the \'R\' Thing"
 subtitle: "Data Analysis with R"
 author: Tahir H. Butt <me@tahirbutt.com>
-date: Feb 08, 2017
+date: Feb 08, 2018
 output:   
   ioslides_presentation:
     logo: images/gcdi-logo.svg
@@ -337,15 +337,12 @@ x
 - we can create new objects and print them out
 </div>
 
-## Remember gym etiquette | Create an R project
+## Remember gym etiquette | Create an R project {.columns-2}
 
-Don't make a mess! Use [Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+* Don't make a mess! Use [Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+* *File > New Directory > New Project*
 
-![](images/rstudio-newproject.png)
-
-- New Project > New Directory > Empty Project
-- Enter "[LAST]-[FIRST]" in Directory Name
-- Create Project
+![](images/rstudio-projects.png)
 
 ## Tracking your progress | Keep an R Notebook
 
@@ -363,6 +360,7 @@ Don't make a mess! Use [Projects](https://support.rstudio.com/hc/en-us/articles/
 * Notebooks are an example of **literate programming**
 * Notebooks are **reproducible** documents
 * Rmarkdown generates publication-quality output  
+* Share project as a git repository: [do-the-right-thing](https://github.com/GCDigitalFellows/do-the-r-thing)
 
 <div class="notes">
 - Your notebook can actually explain your research to others!
