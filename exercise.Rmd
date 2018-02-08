@@ -1,0 +1,90 @@
+---
+title: "Data Exercise"
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+# Importing data
+
+```{r}
+url <- 'http://www.equality-of-opportunity.org/data/college/mrc_table1.csv'
+ratings <- readr::read_csv(url)
+```
+
+But the column names are not useful:
+
+```{r}
+ratings %>% colnames
+```
+
+# Exploring CUNY
+
+Unfortunately, there is no yes/no column that tells us if a school is in CUNY or not. 
+
+Let's start by a simple filter then. We will use the 
+
+```{r}
+ratings %>%
+  filter(stringr::str_detect(name, 'Baruch'))
+```
+
+So maybe the way to get the CUNY schools is to filter for "CUNY"! Let's give that a try:
+
+```{r}
+ratings %>%
+  filter(stringr::str_detect(stringr::str_to_upper(name), 'CUNY'))
+```
+
+There are more than 16 schools in CUNY but this will work for now.
+
+Let's order CUNY schools by their mobility ratings, highest to lowest:
+
+```{r}
+ratings %>%
+  filter(stringr::str_detect(stringr::str_to_upper(name), 'CUNY')) %>% 
+  select(name, mr_kq5_pq1) %>%
+  arrange(-mr_kq5_pq1) %>%
+  head(10)
+```
+
+# Visualizing the data
+
+Let's begin by summarizing the distribution of the mobility rates.
+
+```{r}
+ratings %>% 
+  ggplot(aes(x=mr_kq5_pq1)) + 
+    geom_histogram(aes(y=..density..), 
+                   binwidth=.1,
+                   color="black",
+                   fill="white") +
+    geom_vline(aes(xintercept=mean(mr_kq5_pq1, na.rm=T)),   # Ignore NA values for mean
+               color="red", linetype="dashed", size=1) +
+    geom_density(alpha=.2, fill="#FF6666")
+```
+
+So what were the schools that were in the top 50 of ratings?
+
+```{r fig.width=10,fig.height=10}
+library(forcats)
+ratings %>% 
+  arrange(-mr_kq5_pq1) %>%
+  select(name, mr_kq5_pq1) %>%
+  head(50) %>%
+  ggplot(aes(fct_reorder(as.factor(name), mr_kq5_pq1), mr_kq5_pq1)) + 
+    geom_bar(stat='identity') + 
+    labs(title="Mobility rate of top colleges") +
+    xlab('') +
+    ylab('') +
+    geom_text(aes(label=sprintf('%0.2f', mr_kq5_pq1)), 
+              hjust=1.5,
+              vjust=0.25,
+              size=2.5,
+              position = position_dodge(width = 1), 
+              colour="white",
+              fontface = "bold",
+              inherit.aes = TRUE) +
+    coord_flip()
+```

@@ -121,7 +121,7 @@ Use `readr` and `readxl` packages
 ```{r eval=FALSE}
 readr::read_csv('path/to/file.csv')
 readr::read_csv('http://host/file.csv')
-readxl::read_csv('path/to/file.xlsx')
+readxl::read_excel('path/to/file.xlsx')
 ```
 
 <div class="notes">
@@ -189,36 +189,6 @@ flights %>%
 - The use of the negative sign (`-`) in the `arrange` function before a variable specifies that we want to order the data in descending order for that variable. Here we have combined both ascending and descending ordering.
 </div>
 
-## Tidying your data
-
-- The "tidy" principle is one observation per row and one variable per column
-- But data is often not organized the way your analysis requires
-
-## Tidying example: What we got 
-
-```{r}
-table4a
-```
-
-<div class="notes">
-- This is a sample table added the `tidyverse` package
-- As is typical, the data is not in a shape that makes generating statistics easy. But all hope is not lost.
-</div>
-
-## Tidying example: what we wanted
-
-
-```{r}
-table4a %>%
-  gather(-country, key = "year", value = "cases")
-```
-
-<div class="notes">
-- `gather` is provided by the `tidyr` package to transform a "wide" table into a "long" table
-- `-country` selects all columns but `country`
-- The `key` and `value` parameters help us name the variables we are creating from what had previously been column names
-- `spread` is the opposite of `gather` so can be used when the data you have is currently in a "long" rather than a "wide" format
-</div>
 
 ## Let's get statistical
 
@@ -265,14 +235,38 @@ flightsweather %>% head(5)
 - We save the joined dataset for future work.
 </div>
 
+## Tidying data {.columns-2}
+
+```{r}
+table4a
+```
+
+* Example "pivot" table where column names contain years
+* We want to "unpivot" these columns names as values for the variable `year`
+        
+```{r}
+table4a %>%
+  gather(-country, key = "year", value = "cases")
+```
+
+<div class="notes">
+- The "tidy" principle is one observation per row and one variable per column
+- But data is often not organized the way your analysis requires, as in `table4a` added the `tidyverse` package
+- As is typical, the data is not in a shape that makes generating statistics easy. But all hope is not lost.
+- `gather` is provided by the `tidyr` package to transform a "wide" table into a "long" table
+- `-country` selects all columns but `country`
+- The `key` and `value` parameters help us name the variables we are creating from what had previously been column names
+- `spread` is the opposite of `gather` so can be used when the data you have is currently in a "long" rather than a "wide" format
+</div>
+
 ## Explore variables with visualizations 
 
 ```{r warning=FALSE,message=FALSE,fig.height=3}
 flightsweather %>%
   na.omit() %>%
   ggplot(aes(x=dep_delay)) +
-  geom_histogram(aes(y=..density..),
-                 binwidth = 5)
+    geom_histogram(aes(y=..density..),
+                   binwidth = 5)
 ```
 
 <div class="notes">
@@ -305,7 +299,6 @@ Take a five minute break.
 ![](images/stretching.jpg)
 
 <div class="notes">
-- Write up IP address, login, password
 - Make sure assistants are ready to help students
 - Image credit: George Arents Collection, The New York Public Library. "Exercise 9. Stretching exercise." The New York Public Library Digital Collections. http://digitalcollections.nypl.org/items/510d47e2-3058-a3d9-e040-e00a18064a99
 </div>
@@ -313,6 +306,7 @@ Take a five minute break.
 ## Proper gym equipment | R and RStudio Desktop
 
 * Install [R](https://r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)
+* Or, create an account on [rstudio.cloud](http://rstudio.cloud/) and copy the [project](https://rstudio.cloud/project/16464) for this workshop
 * Read the RStudio Desktop [documentation](https://support.rstudio.com/hc/en-us/sections/200107586-Using-the-RStudio-IDE)
 
 <div class="notes">
@@ -366,3 +360,7 @@ x
 - Your notebook can actually explain your research to others!
 - This presentation is actually written in R Markdown, so the output of a block of code can be included in the resulting document.
 </div>
+
+## Data Exercise
+
+[Data exercise notebook](exercise.html)

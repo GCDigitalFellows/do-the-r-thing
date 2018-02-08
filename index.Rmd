@@ -1,11 +1,6 @@
 ---
 title: "\"Do the R Thing\": Data analysis with R"
-author: Tahir H. Butt <tahir.butt@gmail.com>
+author: Tahir H. Butt <me@tahirbutt.com>
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.align="center")
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
-```
 
 ![](images/header.png){#header .header}

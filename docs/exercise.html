@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Data Exercise</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Do the 'R' Thing</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="presentation.html">Presentation</a>
+</li>
+<li>
+  <a href="exercise.html">Exercise</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data Exercise</h1>
+
+</div>
+
+
+<pre class="r"><code>library(tidyverse)</code></pre>
+<section id="importing-data" class="level1">
+<h1>Importing data</h1>
+<pre class="r"><code>url &lt;- &#39;http://www.equality-of-opportunity.org/data/college/mrc_table1.csv&#39;
+ratings &lt;- readr::read_csv(url)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   super_opeid = col_integer(),
+##   name = col_character(),
+##   czname = col_character(),
+##   state = col_character(),
+##   par_median = col_integer(),
+##   k_median = col_integer(),
+##   par_q1 = col_double(),
+##   par_top1pc = col_double(),
+##   kq5_cond_parq1 = col_double(),
+##   ktop1pc_cond_parq1 = col_double(),
+##   mr_kq5_pq1 = col_double(),
+##   mr_ktop1_pq1 = col_double(),
+##   trend_parq1 = col_double(),
+##   trend_bottom40 = col_double(),
+##   count = col_double()
+## )</code></pre>
+<p>But the column names are not useful:</p>
+<pre class="r"><code>ratings %&gt;% colnames</code></pre>
+<pre><code>##  [1] &quot;super_opeid&quot;        &quot;name&quot;               &quot;czname&quot;            
+##  [4] &quot;state&quot;              &quot;par_median&quot;         &quot;k_median&quot;          
+##  [7] &quot;par_q1&quot;             &quot;par_top1pc&quot;         &quot;kq5_cond_parq1&quot;    
+## [10] &quot;ktop1pc_cond_parq1&quot; &quot;mr_kq5_pq1&quot;         &quot;mr_ktop1_pq1&quot;      
+## [13] &quot;trend_parq1&quot;        &quot;trend_bottom40&quot;     &quot;count&quot;</code></pre>
+</section>
+<section id="exploring-cuny" class="level1">
+<h1>Exploring CUNY</h1>
+<p>Unfortunately, there is no yes/no column that tells us if a school is in CUNY or not.</p>
+<p>Let’s start by a simple filter then. We will use the</p>
+<pre class="r"><code>ratings %&gt;%
+  filter(stringr::str_detect(name, &#39;Baruch&#39;))</code></pre>
+<pre><code>## # A tibble: 1 x 15
+##   super_opeid name      czname state par_median k_median par_q1 par_top1pc
+##         &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;      &lt;int&gt;    &lt;int&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+## 1        7273 CUNY Ber… New Y… NY         42800    57600   27.6      0.559
+## # ... with 7 more variables: kq5_cond_parq1 &lt;dbl&gt;,
+## #   ktop1pc_cond_parq1 &lt;dbl&gt;, mr_kq5_pq1 &lt;dbl&gt;, mr_ktop1_pq1 &lt;dbl&gt;,
+## #   trend_parq1 &lt;dbl&gt;, trend_bottom40 &lt;dbl&gt;, count &lt;dbl&gt;</code></pre>
+<p>So maybe the way to get the CUNY schools is to filter for “CUNY”! Let’s give that a try:</p>
+<pre class="r"><code>ratings %&gt;%
+  filter(stringr::str_detect(stringr::str_to_upper(name), &#39;CUNY&#39;))</code></pre>
+<pre><code>## # A tibble: 16 x 15
+##    super_opeid name     czname state par_median k_median par_q1 par_top1pc
+##          &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;      &lt;int&gt;    &lt;int&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+##  1        7273 CUNY Be… New Y… NY         42800    57600   27.6     0.559 
+##  2        2688 City Co… New Y… NY         35500    48500   32.5     0.234 
+##  3        7022 CUNY Le… New Y… NY         32500    40700   36.7     0     
+##  4        2693 CUNY Jo… New Y… NY         41800    45200   27.2     0.0979
+##  5        2687 CUNY Br… New Y… NY         52200    44300   23.2     0.786 
+##  6        2689 CUNY Hu… New Y… NY         49800    44400   21.2     0.561 
+##  7        2690 CUNY Qu… New Y… NY         63300    48200   20.1     1.27  
+##  8        4759 CUNY Yo… New Y… NY         36500    36400   30.7     0.0612
+##  9        8611 CUNY, H… New Y… NY         26700    27700   45.8     0.0506
+## 10        2691 CUNY Bo… New Y… NY         33500    31900   35.1     0.103 
+## 11       10051 CUNY La… New Y… NY         33800    31800   36.8     0.0332
+## 12        2692 CUNY Br… New Y… NY         29700    28700   41.0     0.0917
+## 13        2697 Queensb… New Y… NY         42200    32400   27.6     0.0634
+## 14       10097 CUNY Me… New Y… NY         35100    30900   30.5     0.137 
+## 15        2694 Kingsbo… New Y… NY         40700    31300   27.1     0.161 
+## 16        2698 College… New Y… NY         73500    41200   14.3     0.355 
+## # ... with 7 more variables: kq5_cond_parq1 &lt;dbl&gt;,
+## #   ktop1pc_cond_parq1 &lt;dbl&gt;, mr_kq5_pq1 &lt;dbl&gt;, mr_ktop1_pq1 &lt;dbl&gt;,
+## #   trend_parq1 &lt;dbl&gt;, trend_bottom40 &lt;dbl&gt;, count &lt;dbl&gt;</code></pre>
+<p>There are more than 16 schools in CUNY but this will work for now.</p>
+<p>Let’s order CUNY schools by their mobility ratings, highest to lowest:</p>
+<pre class="r"><code>ratings %&gt;%
+  filter(stringr::str_detect(stringr::str_to_upper(name), &#39;CUNY&#39;)) %&gt;% 
+  select(name, mr_kq5_pq1) %&gt;%
+  arrange(-mr_kq5_pq1) %&gt;%
+  head(10)</code></pre>
+<pre><code>## # A tibble: 10 x 2
+##    name                                        mr_kq5_pq1
+##    &lt;chr&gt;                                            &lt;dbl&gt;
+##  1 CUNY Bernard M. Baruch College                   12.9 
+##  2 City College Of New York - CUNY                  11.7 
+##  3 CUNY Lehman College                              10.2 
+##  4 CUNY John Jay College Of Criminal Justice         9.69
+##  5 CUNY Brooklyn College                             8.07
+##  6 CUNY Hunter College                               7.54
+##  7 CUNY Queens College                               7.14
+##  8 CUNY York College                                 6.82
+##  9 CUNY, Hostos Community College                    6.50
+## 10 CUNY Borough Of Manhattan Community College       6.14</code></pre>
+</section>
+<section id="visualizing-the-data" class="level1">
+<h1>Visualizing the data</h1>
+<p>Let’s begin by summarizing the distribution of the mobility rates.</p>
+<pre class="r"><code>ratings %&gt;% 
+  ggplot(aes(x=mr_kq5_pq1)) + 
+    geom_histogram(aes(y=..density..), 
+                   binwidth=.1,
+                   color=&quot;black&quot;,
+                   fill=&quot;white&quot;) +
+    geom_vline(aes(xintercept=mean(mr_kq5_pq1, na.rm=T)),   # Ignore NA values for mean
+               color=&quot;red&quot;, linetype=&quot;dashed&quot;, size=1) +
+    geom_density(alpha=.2, fill=&quot;#FF6666&quot;)</code></pre>
+<p><img src="exercise_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>So what were the schools that were in the top 50 of ratings?</p>
+<pre class="r"><code>library(forcats)
+ratings %&gt;% 
+  arrange(-mr_kq5_pq1) %&gt;%
+  select(name, mr_kq5_pq1) %&gt;%
+  head(50) %&gt;%
+  ggplot(aes(fct_reorder(as.factor(name), mr_kq5_pq1), mr_kq5_pq1)) + 
+    geom_bar(stat=&#39;identity&#39;) + 
+    labs(title=&quot;Mobility rate of top colleges&quot;) +
+    xlab(&#39;&#39;) +
+    ylab(&#39;&#39;) +
+    geom_text(aes(label=sprintf(&#39;%0.2f&#39;, mr_kq5_pq1)), 
+              hjust=1.5,
+              vjust=0.25,
+              size=2.5,
+              position = position_dodge(width = 1), 
+              colour=&quot;white&quot;,
+              fontface = &quot;bold&quot;,
+              inherit.aes = TRUE) +
+    coord_flip()</code></pre>
+<p><img src="exercise_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
+</section>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

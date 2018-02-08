@@ -8,6 +8,8 @@ navbar:
     href: index.html
   - text: Presentation
     href: presentation.html
+  - text: Exercise 
+    href: exercise.html
 output:
   html_document:
     lib_dir: site_libs
