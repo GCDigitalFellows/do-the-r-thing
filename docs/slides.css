@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+slide img {
+  max-width: 768px;
+  max-height: 350px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body slides > slide {
+  font-family: Inconsolata !important;
+}
+
+slides > slide:not(.nobackground):after {
+  color: #ffffff;
+}
+
+slides > slide:not(.nobackground):before {
+  background-size: 50px 50px;
+  padding-left: 50px;
+  height: 50px;
+  bottom: 5px;
+}
+
+slides > slide > hgroup + article p {
+  font-family: Inconsolata;
+  font-weight: 400;
+  color: #111111;
+}
+
+.title-slide hgroup p {
+  font-family: Inconsolata;
+  font-weight: 400;
+}
+
+a { 
+  text-decoration: none; 
+  color: #1f78b4;
+  border-bottom: 2px dotted #1f78b4;
+}
+
+strong {
+  color: #e31a1c;
+}
+
+pre:not(.prettyprint) {
+  font-size: 16px;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+pre code {
+  word-wrap: normal;
+  white-space: pre;
+}

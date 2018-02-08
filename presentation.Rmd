@@ -1,28 +1,42 @@
 ---
-title: "Do the R Thing"
-subtitle: "Data analysis with R"
-author: Tahir H. Butt <tahir.butt@gmail.com>
-date: May 10, 2017
+title: "Do the \'R\' Thing"
+subtitle: "Data Analysis with R"
+author: Tahir H. Butt <me@tahirbutt.com>
+date: Feb 08, 2017
 output:   
   ioslides_presentation:
     logo: images/gcdi-logo.svg
     css: slides.css
-    self_contained: false
-    incremental: true
+    self_contained: true
+    incremental: false
+    widescreen: true
     fig_caption: true
 ---
-
-<!--
-http://colorbrewer2.org/#type=qualitative&scheme=Paired&n=6
--->
 
 ```{r global_options, echo = FALSE, include = FALSE}
 options(width = 999)
 ```
 
-# Motivation
+# Motivation for this workshop
 
-## Do the Right Thing | Love, don't hate, your data analysis
+## By way of introduction
+
+- I am a doctoral student in Urban Education,
+- began using R for data analysis in 2009,
+- frustrated with R, began using Pandas and iPython instead,
+- in 2016, fell in love with R again.
+
+## Brought to you by the letter 'R'
+
+![](images/rlogo.png)
+
+<div class="notes">
+- The names of the creators were Ross and Robert, though their names was not only why it was called the R language. It was in fact an extension of the S programming language. Ross and Robert were both from New Zealand but R is not only for Kiwis! The benefits of R are transcultural.
+- How many have already some experience with R? If not, what other software have you used to analyze data?
+- I am assuming you at have done data analysis before though  not necessarily with R. Nor necessarily with prior programming experience.
+</div>
+
+## Data analysis, the right way and wrong way
 
 <div class="columns-2">
 ![](images/lovehate.jpg)
@@ -31,82 +45,48 @@ options(width = 999)
 </div>
 
 <div class="notes">
-> - Is there a *right* way of doing data analysis in R? Why does it even matter?
+- How many of you analyze data? How much data is there? Do you often have to prepare that data before you can analyze it?
+- I think, perhaps foolishly, there is a *right* way of doing data analysis with R. Save yourself lost sleep and don't try to learn it as a programming language.
 </div>
 
-## By way of introduction
-
-> - My name is Tahir and I am
-> - a doctoral candidate in Urban Education,
-> - learned my first programming language (Pascal) in the summer of 1996,
-> - studied computational linguistics in college,
-> - began programming Python in 2005 at my first real job,
-> - began using R in 2009,
-> - moved to Python (and Pandas) for data analysis because I hated R,
-> - but experimented with R again after many years this past December,
-> - and now I have seen the error of my ways.
-
-## Data analysis, brought to you by the letter R
-
-![](images/rlogo.png)
-
-<div class="notes">
-> - Q: How many have done data analysis?
-> - Q: How many have already some experience with R?
-> - I am assuming you at have done data analysis before, not necessarily with R, nor necessarily with prior programming experience.
-</div>
-
-## By way of introduction (cont.)
-
-### Analysis of data?
+## But, what is "data analysis"?
 
 "Procedures for **analyzing** data, techniques for **interpreting** the results of such procedures, ways of planning the **gathering** of data to make its analysis easier, more precise or more accurate, and all the machinery and results of (mathematical) **statistics** which apply to analyzing data." (John W. Tukey, 1961) 
 
-### What is R?
+<div class="notes">
+- The key related phrases being: "analyzing" is the "interpreting" of "statistics" after "gathering" data
+</div>
 
-R is a **language and environment** for statistical computing and graphics
-
-## New Zealand is for love**R**s
-
-### Where did it come from?
-
-R was created by two **New Zealand** academics named Ross and Robert and released in 1995
-
-### Is R only for Kiwis?
-
-Though it seems to help (e.g., **Hadley Wickham**, more on him later), the benefits of R are universal, transcultural, and, possibly, transhistorical.
-
-## A schematic view for us analysts of data {.flexbox .vcenter}
+## A schematic view of data analysis process {.flexbox .vcenter}
 
 ![r4ds.had.co.nz](http://r4ds.had.co.nz/diagrams/data-science-explore.png)
  
-This workshop covers **all but the Model stage** but we will definitely **explore data**.
+<div class="notes">
+- This workshop covers **all but the Model stage** but we will definitely **explore data**.
+</div>
 
-## Why you use R | Or should, if you are not already
+## Why you use R for data analysis | Or should, if you are not already
 
-* Because it is **open source and free**, unlike Stata, SAS, SPSS, etc.
-* Very good **documentation** and lots of help through [Stack Overflow](https://stackoverflow.com/questions/tagged/r)
-* Pretty graphics with the `ggplot2` package
-* `install.packages()` many other packages from the Comprehensive R Archive Network ([CRAN](https://cran.r-project.org/))
+* It is **open source and free** unlike Stata, SAS, SPSS, etc.
+* Good **documentation** and large online community (e.g., [Stack Overflow](https://stackoverflow.com/questions/tagged/r))
+* Many available packages from [Comprehensive R Archive Network](https://cran.r-project.org/) and GitHub
 
-## But most importantly 
-
-* Fascism lost so you don't have to settle for Excel
-
-<div class="centered">
-![Battle of Berlin, May 1945](http://en.protothema.gr/wp-content/uploads/2015/05/new5548-1140x731.jpg)
+<div class="notes">
+- Beautiful graphics with the `ggplot2` package and
 </div>
 
 ## How not to teach R
 
-Garrett Grolemund of RStudio has [enumerated](https://rviews.rstudio.com/2017/02/22/how-to-teach-r-common-mistakes/) principles we will follow:
+Garrett Grolemund of RStudio has [shared](https://rviews.rstudio.com/2017/02/22/how-to-teach-r-common-mistakes/) a few principles we will follow:
 
-1. Do not teach R as if it were a programming language: empower students to use R for data science
-2. Do not avoid the lecture: convey large amounts of information in a short period of time
-3. Do not let your workshop become a consulting clinic for installation bugs:  provide a classroom RStudio Server for students to use
+1. Do not teach R as if it were a programming language 
+2. Do not avoid the lecture 
+3. Do not let your workshop become a consulting clinic for installation bugs 
 
 <div class="notes">
-* Come to Digital Fellows office hours for help installing R and RStudio
+- Implication of #1: empower students to use R for the task at hand, in this case data analysis
+- Implication of #2: convey large amounts of information in a short period of time
+- Implication of #3: provide hosted RStudio for students who have not installed R
 </div>
 
 # Basics for data analysis
@@ -117,84 +97,78 @@ Garrett Grolemund of RStudio has [enumerated](https://rviews.rstudio.com/2017/02
 library(tidyverse)
 ```
 
-![](images/tidyverse-packages.png)
+![](images/tidyverse-packages.PNG)
 
 <div class="notes">
-> - These projects together share a common philosophy that marks an important shift away from the old, and arguably more frustrating, way of doing data analysis in R
+- These projects together share a common philosophy that marks an important shift away from the old, and arguably more frustrating, way of doing data analysis in R
 </div>
 
-## The tidy data way
+## Tidy your data
 
 ![](images/tidyrules.png)
 
 <div class="notes">
-r4ds suggests three interrelated rules which make a dataset tidy:
-
-> - Each variable must have its own column.
-> - Each observation must have its own row.
-> - Each value must have its own cell.
+- r4ds suggests three interrelated rules which make a dataset tidy:
+- Each variable must have its own column.
+- Each observation must have its own row.
+- Each value must have its own cell.
 </div>
 
 ## Importing data
 
 Use `readr` and `readxl` packages
 
-```{r message=FALSE, warning=FALSE, results='hide'}
-readr::read_csv('https://data.ny.gov/api/views/28gk-bu58/rows.csv?accessType=DOWNLOAD')
-```
-
-```{r message=FALSE, warning=FALSE, results='hide'}
-download.file('http://www.equality-of-opportunity.org/data/college/mrc_table1.xlsx', 
-              destfile = 'mrc_table1.xlsx',
-              method='curl')
-readxl::read_excel('mrc_table1.xlsx')
+```{r eval=FALSE}
+readr::read_csv('path/to/file.csv')
+readr::read_csv('http://host/file.csv')
+readxl::read_csv('path/to/file.xlsx')
 ```
 
 <div class="notes">
-> - We use the `readr::read_csv()` for CSV files and `readxl::read_excel()` for Excel files
-> - Notice `read_csv` can take a url whereas we need to download the excel file first
+- We use the `readr::read_csv()` for CSV files and `readxl::read_excel()` for Excel files. The name of the package is before the `::` and the name after is the function. We assume we have installed these packages, which are included in `tidyverse`.
+- Notice `read_csv` can take a url whereas we need to download the excel file first.
 </div>
 
 ## Load up sample data
 
 ```{r}
 library(nycflights13)
-flights[1:5,]
+flights %>% head(5)
 ```
 
 <div class="notes">
-> - We are going to load flight data and inspect the first five rows
+- We are going to load sample flight data and inspect the first five rows
+- When I learned about the `%>%` piping operator, it changed my life forever.
 </div>
 
-## Pipe it like it's hot
+## Pipe it like it's hot  {.columns-2}
 
+- **pipes** are expressed with the `%>%` operator
+- pipes can be **combined** (chained)
+- pipes treat data frames as **immutable**
 
-<div class="columns-2">
 ![](images/pipeitlikeitshot.png)
 
-> - a pipe is expressed by `%>%` from the `magittr` package
-> - clearly expresses a sequence of operations
-> - even more powerful when used as part of `tidyverse`
-
+<div class="notes">
+- The piping operator is introduced by the `magittr` package
+- The data frame is immutable in this approach. The left-hand side of the operator is not changed by the right hand side. 
 </div>
 
 ## Selecting and transforming data
 
 ```{r}
 flights %>%
-  mutate(date = sprintf('%d-%.2d-%.2d', year, month, day)) %>%
-  select(date, air_time, distance) %>%
-  separate(date, "-", into=c("year", "month", "day"), remove=FALSE) %>%
+  mutate(date = as.Date(sprintf('%d-%.2d-%.2d', year, month, day)),
+         weekday = weekdays(date)) %>%
+  select(date, weekday, air_time, distance) %>%
   head(5)
 ```
 
 <div class="notes">
-> - `mutate()` creates new variables
-> - `select()` selects variables
-> - `separate()` turns a single chr variable into multiple (opposite `unite` can replace `mutate`)
-> - We never change the state of the program, `flights` is not mutated even though we call `mutate`
-> - `remove=FALSE` there so we can see what we created in the previous step
-> - `mutate` and `select` from `dplyr` whereas `separate` from `tidyr`
+- `mutate()` creates new variables. Here we combine the date variables, cast it as a date object, and then use the `weekdays` to get the day of the week.
+- `select()` selects variables. We use this to focus on just the variables we are interested in.
+- `separate()` turns a single chr variable into multiple (opposite `unite` can replace `mutate`)
+- Importantly, we never alter state of our program. The `flights` data frame is the same after we apply these piped statements.
 </div>
 
 
@@ -204,15 +178,15 @@ flights %>%
 flights %>%
   filter(day < 8) %>%
   arrange(-air_time,distance) %>%
-  select(carrier, flight, air_time, distance) %>%
+  select(day, carrier, flight, air_time, distance) %>%
   head(5)
 ```
 
 <div class="notes">
-> - `filter()` reduces the number of observations using a matching condition
-> - `arrange()` order data by the value of particular variables
-> - `day` variable is of time `<int>` so we can be sure this matching condition
-> - The use of the negative sign (`-`) in the `arrange` function before a variable specifies that we want to order the data in descending order for that variable. Here we have combined both ascending and descending ordering.
+- `filter()` reduces the number of observations using a matching condition
+- `arrange()` order data by the value of particular variables
+- `day` variable is of time `<int>` so we can be sure this matching condition
+- The use of the negative sign (`-`) in the `arrange` function before a variable specifies that we want to order the data in descending order for that variable. Here we have combined both ascending and descending ordering.
 </div>
 
 ## Tidying your data
@@ -220,48 +194,52 @@ flights %>%
 - The "tidy" principle is one observation per row and one variable per column
 - But data is often not organized the way your analysis requires
 
-## Tidying example: what you get
+## Tidying example: What we got 
 
 ```{r}
 table4a
 ```
 
-## Tidying example: what you wanted
+<div class="notes">
+- This is a sample table added the `tidyverse` package
+- As is typical, the data is not in a shape that makes generating statistics easy. But all hope is not lost.
+</div>
+
+## Tidying example: what we wanted
+
 
 ```{r}
-table4a %>% gather(`1999`, `2000`, key = "year", value = "cases")
-```
-
-If you had many columns to gather, the following is equivalent:
-
-```{r echo=TRUE,results='hide'}
-table4a %>% gather(-country, key = "year", value = "cases")
+table4a %>%
+  gather(-country, key = "year", value = "cases")
 ```
 
 <div class="notes">
-> - `-country` selects all columns but `country`
-> - `spread` is the opposite of `gather` so can be used when the data you have is currently in a "long" rather than a "wide" format
+- `gather` is provided by the `tidyr` package to transform a "wide" table into a "long" table
+- `-country` selects all columns but `country`
+- The `key` and `value` parameters help us name the variables we are creating from what had previously been column names
+- `spread` is the opposite of `gather` so can be used when the data you have is currently in a "long" rather than a "wide" format
 </div>
 
 ## Let's get statistical
 
-```{r echo=TRUE}
-flights %>% summarise(max(air_time, na.rm=TRUE))
+```{r}
+flights %>%
+  summarise(maxairtime = max(air_time, na.rm=TRUE))
 ```
 
-```{r echo=TRUE}
+```{r}
 flights %>% 
   summarise(avg_time = mean(air_time, na.rm=TRUE),
             avg_speed = mean(distance/air_time, na.rm=TRUE))
 ```
 
 <div class="notes">
-> - remember you always have to deal with how to handle `NA` values
-> - easy to add multiple summarized variable based on multiple variable
-> - also can get summary statistics with `flights %>% summary`
+- remember you always have to deal with how to handle `NA` values
+- easy to add multiple summarized variable based on multiple variable
+- also can get summary statistics with `flights %>% summary`
 </div>
 
-## Get it together: weather
+## More than one dataset
 
 ```{r}
 weather %>%
@@ -269,138 +247,124 @@ weather %>%
   head(5)
 ```
 
-## Get it together: weather and flights
+<div class="notes">
+- The `nycflights13` package also provides weather data which we might want to combine with the flights data
+</div>
+
+## Get It Together | Combining weather and flights data
 
 ```{r}
 flightsweather <- flights %>%
   left_join(weather, by = c("origin", "year", "month", "day", "hour")) %>%
   select(origin, dep_delay, wind_speed)
-flightsweather %>%
-  head(5)
+flightsweather %>% head(5)
 ```
 
 <div class="notes">
-> - We will save the joined dataset for future work
+- The `left_join` is one way we can combine two data frames. It will return us all the rows from `flights`, locate the row in `weather` using the column names in the `by` parameter, and add the variables from `weather` to the returned data frame, nulling them when no row was found.
+- We save the joined dataset for future work.
 </div>
 
-## Explore by visualizing
+## Explore variables with visualizations 
 
 ```{r warning=FALSE,message=FALSE,fig.height=3}
 flightsweather %>%
-  ggplot(aes(x=wind_speed, y=dep_delay)) +
-    geom_point()
+  na.omit() %>%
+  ggplot(aes(x=dep_delay)) +
+  geom_histogram(aes(y=..density..),
+                 binwidth = 5)
 ```
 
 <div class="notes">
-> - Introduce `ggplot2`
-> - We can see roughly that with higher values of `visib` there were longer departure delays
+- We can pipe our data frame into `ggplot`, the most magical data visualization library ever.
+- It is hard to see but there's a maximum value of 1301 for the `dep_delay` variable.
 </div>
 
 ## More than just pretty graphics
 
 ```{r warning=FALSE,message=FALSE,fig.height=3}
 flightsweather %>%
-  filter(wind_speed < 250) %>%
+  filter(wind_speed < 250 & dep_delay < 500) %>%
   ggplot(aes(x=wind_speed, y=dep_delay)) +
-    geom_point(aes(color = origin)) +
-    geom_smooth()
+    geom_point() +
+    geom_smooth() +
+    facet_grid(. ~ origin)
 ```
 
 <div class="notes">
-> - Remove outliers
-> - Color points by origin
-> - Not an obvious relationship visible between these two variables
+- Remove outliers (wind speed below 250 and departure delay of less than 500)
+- EWR flights seem more affected by high wind speeds
 </div>
-
-## Exploring groups of data as facets
-
-```{r warning=FALSE,message=FALSE,fig.height=3}
-flightsweather %>%
-  filter(wind_speed < 250) %>%
-  ggplot(aes(x=wind_speed, y=dep_delay)) +
-    geom_point(aes(color = origin)) +
-    geom_smooth() +
-    facet_wrap(~ origin)
-```
 
 # Let's hit the gym
 
-## First, stretch
+## First, stretch {.columns-2}
 
 Take a five minute break.
 
-<div class="notes">
-> - Write up IP address, login, password
-> - Make sure assistants are ready to help students
-</div>
-
-## Proper gym equipment | RStudio
-
-> - Turn on your computers
-> - Connect to gcdf WiFi network with password provided
-> - Open your web browser to web address provided
-> - Login with user and password provided
-> - Create New Session
+![](images/stretching.jpg)
 
 <div class="notes">
-> - Project myself logging in
+- Write up IP address, login, password
+- Make sure assistants are ready to help students
+- Image credit: George Arents Collection, The New York Public Library. "Exercise 9. Stretching exercise." The New York Public Library Digital Collections. http://digitalcollections.nypl.org/items/510d47e2-3058-a3d9-e040-e00a18064a99
 </div>
 
-## Using the free weights | The R Console
+## Proper gym equipment | R and RStudio Desktop
 
-```{r echo=TRUE,results='hide'}
+* Install [R](https://r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)
+* Read the RStudio Desktop [documentation](https://support.rstudio.com/hc/en-us/sections/200107586-Using-the-RStudio-IDE)
+
+<div class="notes">
+- Project myself logging in
+- Connect to gcdf WiFi network with password provided
+- If you are using a loaned laptop, open your web browser to web address provided
+</div>
+
+## Start with free weights | Use the R Console
+
+Familiarize yourself with the [Console](https://support.rstudio.com/hc/en-us/articles/200404846-Working-in-the-Console) 
+
+```{r eval=FALSE}
+version
 sessionInfo()
+x <- date()
+x
 ```
 
-```
-R version 3.4.0 (2017-04-21)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Debian GNU/Linux 8 (jessie)
+<div class="notes">
+- `version` and `sessionInfo()` tell us a bit about the R environment we are working in
+- we can create new objects and print them out
+</div>
 
-Matrix products: default
-BLAS/LAPACK: /usr/lib/libopenblasp-r0.2.12.so
+## Remember gym etiquette | Create an R project
 
-locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
- [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C
-....
-```
-
-## Gym etiquette | Create an R project
+Don't make a mess! Use [Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
 
 ![](images/rstudio-newproject.png)
 
-> - New Project > New Directory > Empty Project
-> - Enter "[LAST]-[FIRST]" in Directory Name
-> - Create Project
+- New Project > New Directory > Empty Project
+- Enter "[LAST]-[FIRST]" in Directory Name
+- Create Project
 
-## Lifting log | Start a new R Notebook
+## Tracking your progress | Keep an R Notebook
 
-An R **Notebook** is an R **Markdown** document with chunks that can be executed **independently** and **interactively**, with output visible immediately beneath the input ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html))
+* A notebook is an **rmarkdown** document intended for recording your analyses
+* Rather than comment your code, your documentation contains code
+* Chunks are executed **independently** and **interactively**
 
-> - File > New File > R Notebook
 
-```
----
-title: "My Notebook"
-output: html_notebook
----
-```
+<div class="notes">
+- Create a notebook with "File > New File > R Notebook"
+</div>
 
 ## What’s your max, bro? | Keeping research reproducible
 
-R Notebooks are a method of **literate programming** that allows for direct interaction with R while producing **a reproducible document** with publication-quality output ([rstudio.com](http://rmarkdown.rstudio.com/r_notebooks.html)). This presentation is actually written in R Markdown, so the output of a block of code can be included in the resulting document.
-
-```{r fig.width=4,fig.height=1.5}
-library(ggplot2)
-data(iris)
-ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width)) + geom_point()
-```
-
-## Let me spot you | Go to your empty R Notebook
+* Notebooks are an example of **literate programming**
+* Notebooks are **reproducible** documents
+* Rmarkdown generates publication-quality output  
 
 <div class="notes">
-- We will be importing data recently collected as part of a large research project. This data measured student earnings as an outcome of college education.
-- 
+- Your notebook can actually explain your research to others!
+- This presentation is actually written in R Markdown, so the output of a block of code can be included in the resulting document.
 </div>

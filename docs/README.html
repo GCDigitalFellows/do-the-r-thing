@@ -11,16 +11,33 @@
 
 
 
-<title></title>
+<title>README.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
 
 
@@ -51,7 +68,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="workshop.css" type="text/css" />
 
 </head>
 
@@ -83,34 +99,34 @@ button.code-folding-btn:focus {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 64px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 
 .section h2 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 69px;
-  margin-top: -69px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 </style>
 
@@ -148,30 +164,32 @@ $(document).ready(function () {
 
 
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
     <div class="navbar-header">
-        <!-- NOTE: add "navbar-inverse" class for an alternate navbar background -->
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      <a class="navbar-brand" href="#">
-        <img alt="GC Digital Initiatives" src="images/gcdi-logo.svg" style="height: 100%; padding: 5px; width: auto;">
-      </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Do the 'R' Thing</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="presentation.html">Presentation</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://github.com/GCDigitalFellows/do-the-r-thing"><i class="fa fa-2x fa-github" aria-hidden="true"></i></a></li>
+        
       </ul>
     </div><!--/.nav-collapse -->
-  </div>
-</nav>
+  </div><!--/.container -->
+</div><!--/.navbar -->
 
 <div class="fluid-row" id="header">
 
@@ -181,23 +199,25 @@ $(document).ready(function () {
 </div>
 
 
-<div id="do-the-r-thing-data-analysis-with-r-made-painless" class="section level1">
-<h1>“Do the R Thing”: Data analysis with R made painless</h1>
-<div class="figure">
-<img src="images/header.png" />
-
-</div>
-<div id="instructions" class="section level2">
-<h2>Instructions</h2>
+<section id="do-the-r-thing-data-analysis-with-r" class="level1">
+<h1>Do the ‘R’ Thing: Data analysis with R</h1>
+<p><img src="images/header.png" /></p>
+<section id="requirements" class="level2">
+<h2>Requirements</h2>
 <ul>
-<li>Install <a href="https://cloud.r-project.org/">R</a>, <a href="https://cran.r-project.org/bin/windows/Rtools/">RTools</a>, and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
-<li>Clone <a href="https://github.com/GCDigitalFellows/do-the-r-thing">this repository</a></li>
+<li>Install <a href="https://r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a></li>
+</ul>
+</section>
+<section id="use-this-workshop" class="level2">
+<h2>Use this workshop</h2>
+<ul>
+<li>Clone or download <a href="https://github.com/GCDigitalFellows/do-the-r-thing">this repository</a></li>
 <li>Open <code>do-the-r-thing.Rproj</code> in RStudio</li>
 <li>Drink your favorite beverage while <a href="https://rstudio.github.io/packrat/">packrat</a> installs libraries</li>
 <li><code>rmarkdown:render_site()</code> to rebuild the website deployed at <a href="https://gcdigitalfellows.github.io/do-the-r-thing/">gcdigitalfellows.github.io/do-the-r-thing</a></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
 
@@ -222,7 +242,7 @@ $(document).ready(function () {
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

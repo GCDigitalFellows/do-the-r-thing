@@ -1,0 +1,9 @@
+name: "do-the-r-thing"
+output_dir: "docs"
+navbar:
+  title: "Do the \'R\' Thing"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Presentation"
+      href: presentation.html
