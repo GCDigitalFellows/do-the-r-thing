@@ -88,3 +88,20 @@ ratings %>%
               inherit.aes = TRUE) +
     coord_flip()
 ```
+
+Map mean ratings for each state
+
+```{r}
+library(tidycensus)
+options(tigris_class = "sf")
+census_api_key(apikey)
+usstates <- get_acs(geography="state",
+                    variables = c(Income = 'B19013_001'),
+                    geometry = TRUE)
+
+ratings %>%
+  group_by(state) %>%
+  summarise(rating = mean(mr_kq5_pq1)) %>%
+  arrange(-rating) %>%
+  
+ ```    
