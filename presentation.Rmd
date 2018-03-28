@@ -1,7 +1,7 @@
 ---
 title: "Do the \'R\' Thing"
 subtitle: "Data Analysis with R"
-author: Tahir H. Butt <me@tahirbutt.com>
+author: Tahir H. Butt <tahir@tahirbutt.com>
 date: Feb 08, 2018
 output:   
   ioslides_presentation:
@@ -16,6 +16,42 @@ output:
 ```{r global_options, echo = FALSE, include = FALSE}
 options(width = 999)
 ```
+
+# GC Digital Initiatives
+
+## What we do 
+
+GCDI offers different types of support for digital scholarship such as our
+bi-weekly drop-in Python User’s Group (PUG), evening **workshops**, afternoon
+**skillshare** lunch conversations, *one-on-one* consultations for faculty and
+students, *working groups* based around common tools or data sources, special
+**events** such as our annual Digital Showcase and Sound Series, and **online
+resources**.
+
+Whether you have participated in our workshops before or your idea of the
+perfect software is a paperback edition, there is something for you! Our
+offerings are open to scholars at all levels of digital experience and at all
+stages of graduate research. Whether you are digitally driven, curious, or
+defiant, we are prepared to help.
+
+## How to get involved
+
+- Join us on the CUNY Academic Commons cuny.is/group-gcdi 
+- Drop-in to Python Users’ Group (PUG) in the Digital Scholarship Lab cuny.is/pug
+- Check our Event Calendar for upcoming events and workshops cuny.is/workshops
+- Request a one-on-one consultation at cuny.is/gcdfconsults (students) or cuny.is/gcfacultyconsults (faculty)
+- Join the GIS Working Group cuny.is/group-gis-working-group
+- Participate in the Humanidades Digitales/ DH in Spanish group cuny.is/dhspanish
+- Apply for a Provost’s Digital Innovation Grant cuny.is/digitalgrants
+
+## Keeping in touch
+
+- Follow the GCDI on Twitter @cunygcdi
+- Follow the GC Digital Fellows on Twitter @digital_fellows
+- Follow the #digitalGC hashtag on Twitter
+- Follow the Digital Fellows blog, *Tagging the Tower* digitalfellows.commons.gc.cuny.edu
+- Contact the Digital Fellows at digitalfellows.commons.gc.cuny.edu/contact-us/
+- Drop-in to the Digital Scholarship Lab Open House hosted twice per semester, or attend PUG, Events, or Workshops! 
 
 # Motivation for this workshop
 
@@ -364,3 +400,13 @@ x
 ## Data Exercise
 
 [Data exercise notebook](exercise.html)
+
+# Before you leave...
+
+## Help us help you
+
+- Fill out a workshop evaluation so we can improve our programming cuny.is/gcdievals
+- Need more support about what you just learned? Request follow-up individual consultations at cuny.is/gcdfconsults (students) or cuny.is/gcfacultyconsults (faculty)  
+- Drop-in to PUG for support with Python or other programming questions. For current dates, visit cuny.is/pug
+- Join the GCDI Group on the CUNY Academic Commons for all GCDI-related updates! cuny.is/group-gcdi
+- Thank you for attending and being involved! The #DigitalGC is you!

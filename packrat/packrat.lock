@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
-RVersion: 3.4.3
+RVersion: 3.4.4
 Repos: CRAN=http://cran.rstudio.com/
 
 Package: BH
@@ -27,12 +27,6 @@ Package: Rcpp
 Source: CRAN
 Version: 0.12.15
 Hash: a419463fc86b3ecc7338ae3ac3bbb268
-
-Package: RgoogleMaps
-Source: CRAN
-Version: 1.4.1
-Hash: 3310ba24c8436b297d1fb60ac4324ff2
-Requires: png
 
 Package: assertthat
 Source: CRAN
@@ -152,19 +146,6 @@ Version: 0.2.0
 Hash: e5a3b0b96a39f5581467b0c6366f7408
 Requires: magrittr, tibble
 
-Package: geosphere
-Source: CRAN
-Version: 1.5-7
-Hash: 006396aaed8f45b60f39b9a31537859d
-Requires: sp
-
-Package: ggmap
-Source: CRAN
-Version: 2.6.1
-Hash: 3e5545418aab1ad8e47c218236dd4f0b
-Requires: RgoogleMaps, digest, geosphere, ggplot2, jpeg, mapproj, plyr,
-    png, proto, reshape2, rjson, scales
-
 Package: ggplot2
 Source: CRAN
 Version: 2.2.1
@@ -210,11 +191,6 @@ Version: 1.3.1
 Hash: 2d32e01e53d532c812052e27a1021441
 Requires: R6, curl, jsonlite, mime, openssl
 
-Package: jpeg
-Source: CRAN
-Version: 0.1-8
-Hash: 189af3df9864c6aa8546033f08ba9358
-
 Package: jsonlite
 Source: CRAN
 Version: 1.5
@@ -246,17 +222,6 @@ Package: magrittr
 Source: CRAN
 Version: 1.5
 Hash: bdc4d48c3135e8f3b399536ddf160df4
-
-Package: mapproj
-Source: CRAN
-Version: 1.2-5
-Hash: c1a918323e5d768ca1a5f91eea5571af
-Requires: maps
-
-Package: maps
-Source: CRAN
-Version: 3.2.0
-Hash: 086a0f4e41bf42749d8737e9407a4853
 
 Package: maptools
 Source: CRAN
@@ -330,20 +295,10 @@ Version: 1.8.4
 Hash: 02588dd72bf343b964fa2fe450e0cf96
 Requires: Rcpp
 
-Package: png
-Source: CRAN
-Version: 0.1-7
-Hash: 421d7d6e0fb4bd885ecbd909b6456b8b
-
 Package: praise
 Source: CRAN
 Version: 1.0.0
 Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
-
-Package: proto
-Source: CRAN
-Version: 1.0.0
-Hash: f9a2528572320c1e0bc8783dfd6e0fae
 
 Package: psych
 Source: CRAN
@@ -393,14 +348,9 @@ Requires: Rcpp, plyr, stringr
 
 Package: rgdal
 Source: CRAN
-Version: 1.2-16
-Hash: 415bcd52174da30bedbca3001a28b258
+Version: 1.2-18
+Hash: 499159dc7adf65942ff02851760a8a77
 Requires: sp
-
-Package: rjson
-Source: CRAN
-Version: 0.2.15
-Hash: def074f38d0cff3b597649ee6f976128
 
 Package: rlang
 Source: CRAN
@@ -446,9 +396,9 @@ Requires: stringr
 
 Package: sf
 Source: CRAN
-Version: 0.6-0
-Hash: 75ab2da8a20c7345ecdae2153d7d650c
-Requires: DBI, Rcpp, classInt, magrittr, pillar, units
+Version: 0.6-1
+Hash: 4c9f42ae123c5e66bb8ad535bc6a734c
+Requires: DBI, Rcpp, classInt, magrittr, units
 
 Package: sp
 Source: CRAN

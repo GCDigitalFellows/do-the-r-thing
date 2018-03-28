@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url('fonts/plex/css/ibm-plex.css');
 
 slide img {
   max-width: 768px;
@@ -9,7 +9,16 @@ slide img {
 }
 
 body slides > slide {
-  font-family: Inconsolata !important;
+    font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: #111111;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.title-slide hgroup h1, .title-slide hgroup h2, .segue h2 {
+    font-family: 'IBM Plex Serif', 'Georgia', Times, serif;
 }
 
 slides > slide:not(.nobackground):after {
@@ -23,14 +32,7 @@ slides > slide:not(.nobackground):before {
   bottom: 5px;
 }
 
-slides > slide > hgroup + article p {
-  font-family: Inconsolata;
-  font-weight: 400;
-  color: #111111;
-}
-
 .title-slide hgroup p {
-  font-family: Inconsolata;
   font-weight: 400;
 }
 
@@ -46,6 +48,10 @@ strong {
 
 pre:not(.prettyprint) {
   font-size: 16px;
+}
+
+code, pre {
+    font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
 }
 
 pre {
